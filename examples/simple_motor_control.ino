@@ -22,15 +22,15 @@ void setup() {
   Serial.println("MCP2515 Initialized Successfully!");
   CAN0.setMode(MCP_NORMAL);   // Change to normal mode to allow messages to be transmitted
 
-  // use position controller and move motor by 180° with low speed and low acceleration
-  servo_conn.set_pos_spd(ID_MOTOR_1, 180, 1000, 1000);
+  servo_conn.set_origin(ID_MOTOR_1, 0);
+
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
 
-  // drive motor in duty_cycle_mode
-  servo_conn.set_duty_cycle(ID_MOTOR_1, 0.1);
+  // use position controller and move motor by 180° with low speed and low acceleration
+  servo_conn.set_pos_spd(ID_MOTOR_1, 180, 1000, 1000);
 
   delay(5);
   // check for incoming messages
