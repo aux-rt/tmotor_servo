@@ -1,19 +1,20 @@
 # Arduino Library for Cube Mars TMotor AK60-6
 
-This library implements the servo protocal of the Cube Mars TMotor AK series. To use the library the motor muste be switched to Servo Mode and a Controller ID must be configured with the CubeMars Upper Computer Software. The library supports multiple motors.
+This library implements the servo protocol of the Cube Mars TMotor AK series. To use the library switch the motor to Servo Mode and configure a Controller ID with the CubeMars Upper Computer Software. The library supports multiple motors.
 
 ## Prerequisites
 This library is compatible with the Arduino Nano RP2040 microcontroller. It is using the [MCP_CAN](https://github.com/coryjfowler/MCP_CAN_lib) library and a MCP2515 controller to handle the CAN connectin with the motor. The following wiring is used:
+
 ![plot](basic_wiring.png)
 
 ## Installation
-1. Download this Repository as ZIP file.
-2. In the Arduino IDE: Sktech --> Include Library... -> Add .ZIP Library..
-3. Chose the downloaded library
+1. Download this Repository as ZIP file
+2. In the Arduino IDE: Sktech --> Include Library.. -> Add .ZIP Library..
+3. Chose the downloaded .ZIP file
 4. Restart IDE
 
 ## Usage
-First you have to create a CAN connection and a servo_connection object:
+Create a CAN connection and a servo_connection object:
 ```C++
 #include "mcp_can.h"
 #include "TMotor_ServoConnection.h"
@@ -25,7 +26,7 @@ MCP_CAN CAN0(10); // set SPI select pin to pin 10
 TMotor_ServoConnection servo_conn(CAN0);  // create CAN Servo Connection
 ```
 
-In the setup function you have to initialize the CAN connection. After a connection could be established, you can set the zero position of the motor:
+Initialize the CAN Connection in the setup function. After a connection could be successfully established, you can set the zero position of the motor:
 ```C++
 void setup() {
   // establisehd serial connection to PC
