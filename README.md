@@ -1,15 +1,15 @@
 # Arduino Library for Cube Mars TMotor AK60-6
 
-This library implements the servo protocol of the Cube Mars TMotor AK series. To use the library switch the motor to Servo Mode and configure a Controller ID with the CubeMars Upper Computer Software. The library supports multiple motors.
+This library implements the servo protocol of the Cube Mars TMotor AK series. To use the library, switch the motor to Servo Mode and configure a Controller ID with the CubeMars Upper Computer Software. The library supports multiple motors.
 
 ## Prerequisites
-This library is compatible with the Arduino Nano RP2040 microcontroller. It is using the [MCP_CAN](https://github.com/coryjfowler/MCP_CAN_lib) library and a MCP2515 controller to handle the CAN connectin with the motor. The following wiring is used:
+This library is compatible with the Arduino Nano RP2040 microcontroller. It is using the [MCP_CAN](https://github.com/coryjfowler/MCP_CAN_lib) library and a MCP2515 controller to handle the CAN connection with the motor. The following wiring is used:
 
 ![plot](basic_wiring.png)
 
 ## Installation
 1. Download this Repository as ZIP file
-2. In the Arduino IDE: Sktech --> Include Library.. -> Add .ZIP Library..
+2. In the Arduino IDE: Sketch --> Include Library.. -> Add .ZIP Library..
 3. Chose the downloaded .ZIP file
 4. Restart IDE
 
@@ -26,7 +26,7 @@ MCP_CAN CAN0(10); // set SPI select pin to pin 10
 TMotor_ServoConnection servo_conn(CAN0);  // create CAN Servo Connection
 ```
 
-Initialize the CAN Connection in the setup function. After a connection could be successfully established, you can set the zero position of the motor:
+Initialize the CAN Connection in the setup function. After a connection could be established successfully, you can set the zero position of the motor:
 ```C++
 void setup() {
   // establisehd serial connection to PC
@@ -44,7 +44,7 @@ void setup() {
 }
 ```
 
-In the loop function you can repeatable send a command to the motor, e.g. with the set_duty_cycle(motor_id, duty_cycle) command. To read the incomming CAN messages from the motor use the can_receive() function if the MCP2515 signals that a message is available. To print the incoming data use the print_motor_vars(motor_id) function.
+The loop function can be used to repeatable send a command to the motor, for example, with the set_duty_cycle(motor_id, duty_cycle) command. To read the incoming CAN messages from the motor, use the can_receive() function if the MCP2515 signals that a message is available. Use print_motor_vars(motor_id) to print the received data.
 ```C++
 void loop() {
   servo_conn.set_duty_cycle(ID_MOTOR, 0.1);
