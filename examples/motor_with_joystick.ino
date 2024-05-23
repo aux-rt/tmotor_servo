@@ -1,7 +1,6 @@
 #include "Arduino.h"
 #include "mcp_can.h"
 #include "TMotor_ServoConnection.h"
-#include "Servo.h"  
 
 // define constants
 #define CAN0_INT 2
