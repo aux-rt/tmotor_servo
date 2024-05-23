@@ -8,10 +8,11 @@ This library is compatible with the Arduino Nano RP2040 microcontroller. It is u
 ![plot](basic_wiring.png)
 
 ## Installation
-1. Download this Repository as ZIP file
-2. In the Arduino IDE: Sketch --> Include Library.. -> Add .ZIP Library..
-3. Chose the downloaded .ZIP file
-4. Restart IDE
+1. Install "mcp_can" by coryjfowler with the Arduino Library Manager
+2. Download this Repository as ZIP file
+3. In the Arduino IDE: Sketch --> Include Library.. -> Add .ZIP Library..
+4. Chose the downloaded .ZIP file
+5. Restart IDE
 
 ## Usage
 Create a CAN connection and a servo_connection object:
