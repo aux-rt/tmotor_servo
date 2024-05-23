@@ -13,7 +13,7 @@ struct motor_constants_struct {
 struct motor_data {
   float position;
   float velocity;
-  float current;
+  float torque;
   int temp;
   int error;
 };
