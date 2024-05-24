@@ -110,14 +110,14 @@ void TMotor_ServoConnection::parse_CAN_data(long unsigned int id, unsigned char 
     motor_data motor;
     motor.position = motor_pos;
     motor.velocity = motor_spd;
-    motor.torque = motor_cur;
+    motor.current = motor_cur;
     motor.temp = motor_temp;
     motor.error = motor_error;
     motors[motor_id] = motor;
   } else { // change values of existing entry
     data->position = motor_pos;
     data->velocity = motor_spd;
-    data->torque = motor_cur;
+    data->current = motor_cur;
     data->temp = motor_temp;
     data->error = motor_error;
   }
@@ -144,7 +144,7 @@ void TMotor_ServoConnection::print_motor_vars(int id){
   if (data == NULL) return;
   motor_data motor = *data;
   char msgString[128];    
-  sprintf(msgString, " | CAN ID: %02X, Pos: %.2f, Vel: %.2f, Torque %.2f, Error: %1d", id, motor.position, motor.velocity, motor.torque, motor.error);
+  sprintf(msgString, " | CAN ID: %02X, Pos: %.2f, Vel: %.2f, Current: %.2f, Temp: %1d, Error: %1d", id, motor.position, motor.velocity, motor.current, motor.temp, motor.error);
   Serial.println(msgString);
 }
 
@@ -166,7 +166,7 @@ float TMotor_ServoConnection::get_current(int id){
   motor_data* data = get_motor_data_reference(id);
   if (data == NULL) return std::numeric_limits<float>::infinity();
   motor_data motor = *data;
-  return motor.torque;
+  return motor.current;
 }
 
 int TMotor_ServoConnection::get_temp(int id){
