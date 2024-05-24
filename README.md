@@ -1,6 +1,6 @@
 # Arduino Library for Cube Mars TMotor AK60-6
 
-This library implements the servo protocol of the Cube Mars TMotor AK series. To use the library, switch the motor to Servo Mode and configure a Controller ID with the CubeMars Upper Computer Software. The library supports multiple motors.
+This library implements the servo protocol of the Cube Mars TMotor AK series. To use the library, switch the motor to Servo Mode and configure a Controller ID with the CubeMars Upper Computer Software. The library supports multiple motors. You can download the AK Series CAN Communication datasheet [here](https://www.cubemars.com/article.php?id=261).
 
 ## Prerequisites
 This library is compatible with the Arduino Nano RP2040 microcontroller. It is using the [MCP_CAN](https://github.com/coryjfowler/MCP_CAN_lib) library and a MCP2515 controller to handle the CAN connection with the motor. The following wiring is used:
